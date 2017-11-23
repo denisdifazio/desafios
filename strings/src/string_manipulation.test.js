@@ -1,4 +1,5 @@
-import formatTextWithoutJustify from './string_manipulation';
+import { formatTextWithoutJustify, justifyText } from './string_manipulation';
+import { TEXT_INPUT, TEXT_OUTPUT_PART_1, TEXT_OUTPUT_PART_2 } from './constants';
 
 describe('formatTextWithoutJustify', () => {
   it('allows empty input', () => {
@@ -13,39 +14,33 @@ describe('formatTextWithoutJustify', () => {
     expect(formatTextWithoutJustify(0, 'a')).toEqual('');
   });
 
-  it('output correctly', () => {
-    expect(
-      formatTextWithoutJustify(
-        `In the beginning God created\
- the heavens and the earth. Now\
- the earth was formless and empty,\
- darkness was over the surface of\
- the deep, and the Spirit of God\
- was hovering over the waters.
- 
-And God said, "Let there be light," and\
- there was light. God saw that the light\
- was good, and he separated the light\
- from the darkness. God called the light\
- "day," and the darkness he called\
- "night." And there was evening, and\
- there was morning - the first day.`,
-        40,
-      ),
-    ).toEqual(
-      `In the beginning God created the heavens
-and the earth. Now the earth was
-formless and empty, darkness was over
-the surface of the deep, and the Spirit
-of God was hovering over the waters.
+  it('handles negative line length input', () => {
+    expect(formatTextWithoutJustify(0, -1)).toEqual('');
+  });
 
-And God said, "Let there be light," and
-there was light. God saw that the light
-was good, and he separated the light
-from the darkness. God called the light
-"day," and the darkness he called
-"night." And there was evening, and
-there was morning - the first day.`,
-    );
+  it('outputs correctly', () => {
+    expect(formatTextWithoutJustify(TEXT_INPUT, 40)).toEqual(TEXT_OUTPUT_PART_1);
+  });
+});
+
+describe('justifyText', () => {
+  it('allows empty input', () => {
+    expect(justifyText('', 40)).toEqual('');
+  });
+
+  it('handles invalid text input', () => {
+    expect(justifyText(0, 40)).toEqual('');
+  });
+
+  it('handles invalid line length input', () => {
+    expect(justifyText(0, 'a')).toEqual('');
+  });
+
+  it('handles negative line length input', () => {
+    expect(formatTextWithoutJustify(0, -1)).toEqual('');
+  });
+
+  it('outputs correctly', () => {
+    expect(justifyText(TEXT_INPUT, 40)).toEqual(TEXT_OUTPUT_PART_2);
   });
 });

@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.11.0",
@@ -14,29 +15,22 @@
     "jest": "^21.2.1"
   },
   "jest": {
-    "modulePathIgnorePatterns": [
-      "package.json"
-    ]
+    "modulePathIgnorePatterns": ["package.json"]
   },
   "babel": {
-    "presets": [
-      "env"
-    ],
+    "presets": ["env"],
     "plugins": [
       [
         "babel-plugin-transform-builtin-extend",
         {
-          "globals": [
-            "Error"
-          ]
+          "globals": ["Error"]
         }
       ],
-      [
-        "transform-regenerator"
-      ]
+      ["transform-regenerator"]
     ]
   },
   "scripts": {
+    "start": "babel-node index.js",
     "test": "jest"
   },
   "eslintConfig": {
@@ -53,10 +47,7 @@
     "rules": {
       "import/no-unresolved": "off",
       "import/extensions": "off",
-      "linebreak-style": [
-        "error",
-        "windows"
-      ]
+      "linebreak-style": ["error", "windows"]
     }
   }
 }
