@@ -3,8 +3,6 @@ import Telegraf from 'telegraf';
 import Extra from 'telegraf/extra';
 import Markup from 'telegraf/markup';
 
-console.log(process.env);
-
 const bot = new Telegraf('481447498:AAG3CTQd_9CaSTIhi5L0K8VT45trd1UaUHQ');
 
 bot.start(ctx => {
