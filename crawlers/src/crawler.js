@@ -16,19 +16,22 @@ bot.command('/nadaprafazer', ctx => {
 
   subreddits != undefined
     ? fetchTopThreads(subreddits.split(';')).map(promise =>
-        promise.then(data =>
-          data.map(thread => {
-            const { score, subreddit, title, permalink, url } = thread;
-            const text = `*Score*: ${score}
+        promise.then(
+          ({ subreddit, list }) =>
+            list.length === 0
+              ? ctx.reply(`No results found for subreddit "${subreddit}"`)
+              : list.map(thread => {
+                  const { score, subreddit, title, permalink, url } = thread;
+                  const text = `*Score*: ${score}
 *Subreddit*: ${subreddit}
 *Title*: ${title}
 *Reddit Comments*: [${title}](${permalink})
 *URL*: ${url}
 ----------------------------`;
 
-            console.log(text);
-            ctx.reply(text, Extra.webPreview(false).markdown());
-          }),
+                  console.log(text);
+                  ctx.reply(text, Extra.webPreview(false).markdown());
+                }),
         ),
       )
     : ctx.reply('Please, insert at least one subreddit e.g "/nadaprafazer brasil"');
