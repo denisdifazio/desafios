@@ -47,7 +47,7 @@ Para executar a aplicação basta utilizar o comando `npm start` e para executar
 os testes `npm test`. Após iniciada a aplicação, para se comunicar com o bot o
 usuário deve procurar pelo mesmo no Telegram através do username
 `@redditcrawlerbot`. Após se conectar em um chat com o robô, o usuário pode se
-comunicar usadno o comando `/nadaprafazer [lista]`, por exemplo: `/nadaprafazer
+comunicar usando o comando `/nadaprafazer [lista]`, por exemplo: `/nadaprafazer
 brasil;pics;askreddit`.
 
 Obs: todos os comandos acima citados podem ser utilizados com `yarn`
